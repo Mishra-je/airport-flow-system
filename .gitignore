@@ -1,0 +1,13 @@
+node_modules/
+.env
+*.env
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+ml-service/models/saved/
+build/
+dist/
+.DS_Store
+*.log
