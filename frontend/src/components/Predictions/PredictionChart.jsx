@@ -9,6 +9,7 @@ const getColor = (count) => {
   return "#22c55e";
 };
 
+
 export default function PredictionChart({ data = [], title = "24-Hour Forecast" }) {
   return (
     <div className="bg-slate-800 border border-slate-700 rounded-xl p-5">
@@ -28,7 +29,7 @@ export default function PredictionChart({ data = [], title = "24-Hour Forecast" 
             labelStyle={{ color: "#94a3b8" }}
           />
           <Bar dataKey="predicted_count" name="Passengers" radius={[4, 4, 0, 0]}>
-            {data.map((entry, index) => (
+           {(Array.isArray(data) ? data : []).map((entry, index) => (
               <Cell key={index} fill={getColor(entry.predicted_count)} />
             ))}
           </Bar>

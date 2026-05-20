@@ -11,7 +11,7 @@ export default function HourlyForecast({ data = [] }) {
     <div className="bg-slate-800 border border-slate-700 rounded-xl p-5">
       <h3 className="text-white font-semibold mb-4">Hourly Breakdown</h3>
       <div className="overflow-y-auto max-h-72 space-y-1 pr-1">
-        {data.map((item, i) => (
+    {(Array.isArray(data) ? data : []).map((item, i) => (
           <div key={i} className="flex items-center justify-between py-2 border-b border-slate-700/50">
             <span className="text-slate-300 text-sm w-16">{item.hour}</span>
             <div className="flex-1 mx-3">

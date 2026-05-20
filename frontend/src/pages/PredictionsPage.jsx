@@ -16,13 +16,24 @@ export default function PredictionsPage() {
 
   useEffect(() => {
     predictionService.getHourly()
-      .then((d) => setForecast(d.forecast || []))
-      .catch(() => {});
+      .then((d) => {
+  console.log("Hourly API:", d);
+  setForecast(Array.isArray(d.forecast) ? d.forecast : []);
+}).catch(() => {});
   }, []);
+
+// .then((d) => {
+//   console.log("Hourly API:", d);
+//   setForecast(Array.isArray(d.forecast) ? d.forecast : []);
+// })
+ 
 
   useEffect(() => {
     predictionService.getTerminal(selectedTerminal)
-      .then((d) => setTerminalForecast(d.forecast || []))
+      .then((d) => {
+  console.log("Terminal API:", d);
+  setTerminalForecast(Array.isArray(d.forecast) ? d.forecast : []);
+})
       .catch(() => {});
   }, [selectedTerminal]);
 
